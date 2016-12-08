@@ -1,0 +1,28 @@
+<div class="container-fluid" ng-controller="userdetails">
+    <form role="form" class="form-horizontal">
+        <ex-actions>
+            <ex-action ex-text="编辑" ex-icon="glyphicon glyphicon-pencil" ex-authorize="/User/Save"
+                       ng-click="$state.go('main.user_edit',{id:data.Id})"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="用户名:" ex-flex-label="2" ng-model="data.Username"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="姓:" ex-flex-label="2" ng-model="data.LastName"></ex-valuefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="名:" ex-flex-label="2" ng-model="data.FirstName"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="12">
+                    <ex-valuefield ex-field-label="邮箱:" ex-flex-label="1" ng-model="data.Email"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+        </ex-row>
+    </form>
+</div>

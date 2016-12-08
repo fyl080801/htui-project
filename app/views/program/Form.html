@@ -1,0 +1,45 @@
+<div class="container-fluid">
+    <form role="form" class="form-horizontal" name="form">
+        <ex-actions>
+            <ex-action ex-text="保存" ex-icon="glyphicon glyphicon-ok-sign" ng-click="handlers.save()"
+                       ng-disabled="form.$invalid"></ex-action>
+            <ex-sp></ex-sp>
+            <ex-action ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign" ng-click="$state.back()"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column>
+                    <ex-textfield ex-field-label="节目名:" ex-flex-label="1" ng-model="data.Name"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-combobox ex-field-label="模板:" ex-flex-label="2" ng-model="data.Template"
+                                 ex-datasource="stores.Templates" ex-valueproperty="Name" ng-required="true"
+                                 ex-displayproperty="Name"></ex-combobox>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-checkboxfield ex-field-label="启用:" ex-flex-label="2" ng-model="data.Enabled"></ex-checkboxfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-timefield ex-field-label="开始时间:" ex-flex-label="2" ex-flex-input="4" ng-model="data.StartTime"
+                                  ng-required="true"></ex-timefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-timefield ex-field-label="结束时间:" ex-flex-label="2" ex-flex-input="4"
+                                  ng-model="data.EndTime"></ex-timefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column>
+                    <ex-textarea ex-field-label="说明:" ex-flex-label="1" ng-model="data.Remark"
+                                 ex-rows="5"></ex-textarea>
+                </ex-column>
+            </ex-row>
+        </ex-row>
+        <ex-valuefield ex-hidden="true" ng-model="data.Id"></ex-valuefield>
+    </form>
+</div>

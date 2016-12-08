@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <form role="form" class="form-horizontal">
+        <ex-actions>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-action ex-icon="glyphicon glyphicon-pencil"
+                               ng-click="$state.go('main.program_edit',{id:data.Id})"
+                               ng-if="'|1|6|3|5|'.indexOf('|'+data.State+'|')>=0" ex-text="编辑"
+                               ex-authorize="/ProgramPublish/Program/Save"></ex-action>
+                </ex-column>
+                <ex-column ex-flex="6" class="text-right">
+                    <ex-action ex-icon="glyphicon glyphicon-share" ng-click="handlers.toExamine(data.Id,2)"
+                               ng-if="'|1|6|3|'.indexOf('|'+data.State+'|')>=0" ex-text="送审"
+                               ex-authorize="/ProgramPublish/Program/Save"></ex-action>
+                    <ex-action ex-icon="glyphicon glyphicon-share" ng-click="handlers.doExamine(data.Id,5)"
+                               ng-if="data.State===2" ex-text="通过"
+                               ex-authorize="/ProgramPublish/Program/Examines"></ex-action>
+                    <ex-action ex-icon="glyphicon glyphicon-share" ng-click="handlers.doExamine(data.Id,3)"
+                               ng-if="data.State===2" ex-text="退回"
+                               ex-authorize="/ProgramPublish/Program/Examines"></ex-action>
+                    <ex-action ex-icon="glyphicon glyphicon-share" ng-click="handlers.doExamine(data.Id,4)"
+                               ng-if="data.State===2" ex-text="终止"
+                               ex-authorize="/ProgramPublish/Program/Examines"></ex-action>
+                </ex-column>
+            </ex-row>
+        </ex-actions>
+        <div class="container-fluid">
+            <ex-row>
+                <ex-column>
+                    <ex-valuefield ex-field-label="节目名:" ex-flex-label="1" ng-model="data.Name">
+                    </ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="模板:" ex-flex-label="2" ng-model="data.Template">
+                    </ex-valuefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="启用:" ex-flex-label="2" ng-model="data.Enabled">
+                    </ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="开始时间:" ex-flex-label="2" ng-model="data.StartTime"
+                                   ex-filter="date" ex-format="HH:mm">
+                    </ex-valuefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="结束时间:" ex-flex-label="2" ng-model="data.EndTime"
+                                   ex-filter="date" ex-format="HH:mm">
+                    </ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column>
+                    <ex-valuefield ex-field-label="说明:" ex-flex-label="1" ng-model="data.Remark">
+                    </ex-valuefield>
+                </ex-column>
+            </ex-row>
+        </div>
+    </form>
+</div>

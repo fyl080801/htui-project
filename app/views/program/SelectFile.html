@@ -1,0 +1,6 @@
+<div class="container-fluid" ng-controller="resourceselect">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Resource/List" column-source="data.Columns">
+        <ex-action ex-text="返回" ex-icon="glyphicon glyphicon-chevron-left"
+                   ng-click="$state.back()"></ex-action>
+    </ex-datagrid>
+</div>

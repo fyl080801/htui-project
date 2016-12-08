@@ -1,0 +1,28 @@
+<div ng-controller="terminalIp">
+    <div class="modal-header">
+        <h3 class="modal-title">修改IP</h3>
+    </div>
+    <div class="modal-body container-fluid">
+        <form class="form-horizontal" role="form" name="form">
+            <ex-row>
+                <ex-column>
+                    <ex-textfield ex-field-label="IP:" ex-flex-label="2" ng-model="$data.Ip" ex-pattern="ip"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column>
+                    <ex-textfield ex-field-label="子网:" ex-flex-label="2" ng-model="$data.Sub" ex-pattern="ip"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close($data)"
+                ng-disabled="form.$invalid">
+            确定
+        </button>
+        <button class="btn btn-default" type="button" ng-click="$dismiss()">取消</button>
+    </div>
+</div>

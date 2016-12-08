@@ -1,0 +1,6 @@
+<a href="" ng-click="handlers.change(item)">{{item[exDisplayproperty?exDisplayproperty:'text']}}</a>
+<ul class="comboitem">
+    <li ng-repeat="item in item.children"
+        ng-include="'templates/form/TreeItem.html'">
+    </li>
+</ul>

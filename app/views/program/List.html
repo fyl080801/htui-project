@@ -1,0 +1,6 @@
+<div class="container-fluid" ng-controller="programlist">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Program/Programs" column-source="data.Columns">
+        <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign"
+                   ng-click="$state.go('main.program_new')"></ex-action>
+    </ex-datagrid>
+</div>

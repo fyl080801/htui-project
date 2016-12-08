@@ -1,0 +1,23 @@
+<div id="combobox-{{$id}}" class="form-group">
+    <label id="combobox-label-{{$id}}" ng-hide="!exFieldLabel" class="control-label col-md-{{exFlexLabel}}"
+           for="combobox-input-{{$id}}">{{exFieldLabel}}</label>
+    <div class="col-md-{{exFlexInput?exFlexInput:12-exFlexLabel}}">
+        <div class="input-group" dropdown>
+            <input id="combobox-input-{{$id}}" type="text" class="form-control" ng-disabled="exBindDisabled"
+                   value="{{data.selected[exDisplayproperty?exDisplayproperty:'text']}}" ng-required="exBindRequired"
+                   ng-click="handlers.triggerButton()"/>
+            <ul class="dropdown-menu" role="menu">
+                <!--<li ng-repeat="item in exDatasource" ng-include="'templates/form/TreeItem.html'">-->
+                <!--</li>-->
+                <li ng-repeat="item in stores.source" ng-click="handlers.change(item)">
+                    <a href=""><span style="margin-left: 20px;" ng-repeat="n in []|range:item.deep"></span>{{item[exDisplayproperty?exDisplayproperty:'text']}}</a>
+                </li>
+            </ul>
+            <button id="combobox-button-{{$id}}" type="button" class="btn btn-default input-group-addon dropdown-toggle"
+                    dropdown-toggle ng-disabled="exBindDisabled" ng-click="handlers.Open()">
+                <i class="caret"></i>
+            </button>
+        </div>
+        <input type="hidden" ng-model="exBindModel" ng-required="exBindRequired"/>
+    </div>
+</div>

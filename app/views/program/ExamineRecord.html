@@ -1,0 +1,5 @@
+<div class="container-fluid" ng-controller="examineRecord">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Program/ExamineRecord/{{$stateParams.id}}"
+                 column-source="data.Columns">
+    </ex-datagrid>
+</div>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--[if lte IE 8]>
+<html class="no-js lte-ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+
+<body>
+<div ui-view></div>
+<script src="lib/requirejs/require.js"></script>
+<script type="text/javascript">
+    require.config({baseUrl: 'js/'});
+</script>
+<script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3 class="modal-title">设置显示区域</h3>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" role="form" name="resourceform">
+        <ex-row>
+            <ex-column>
+                <ex-combobox ex-field-label="显示区域:" ex-flex-label="2" ng-model="data.displayId"
+                             ex-datasource="stores.Areas" ex-valueproperty="Code" ng-required="true"
+                             ex-displayproperty="Name"></ex-combobox>
+                <!--<ex-textfield ex-field-label="位置Id:" ex-flex-label="2" ng-model="data.displayId"-->
+                <!--ng-required="true"></ex-textfield>-->
+            </ex-column>
+        </ex-row>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$close(data.displayId)" ng-disabled="resourceform.$invalid">
+        确定
+    </button>
+    <button class="btn btn-default" type="button" ng-click="$dismiss()">取消</button>
+</div>

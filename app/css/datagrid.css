@@ -1,0 +1,172 @@
+.datagrid-header,
+.datagrid-footer {
+    margin: 0 0 15px 0;
+}
+
+.datagrid-header a,
+.datagrid-footer a {
+    outline: 0;
+}
+
+.datagrid-header .search,
+.datagrid-footer .search {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    vertical-align: middle;
+    width: 180px;
+}
+
+.datagrid-header .search .glyphicon,
+.datagrid-footer .search .glyphicon {
+    top: 0;
+}
+
+.datagrid-header .search .fa,
+.datagrid-footer .search .fa {
+    display: table-cell;
+}
+
+.datagrid-header .search.search-field::-ms-clear,
+.datagrid-footer .search.search-field::-ms-clear,
+.datagrid-header .search .search-field::-ms-clear,
+.datagrid-footer .search .search-field::-ms-clear {
+    display: none;
+}
+
+.datagrid-header .pagination,
+.datagrid-footer .pagination {
+    margin: 0 !important;
+}
+
+.datagrid-header .actionBar,
+.datagrid-footer .infoBar {
+    text-align: right;
+}
+
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu {
+    text-align: left;
+}
+
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item {
+    cursor: pointer;
+    display: block;
+    margin: 0;
+    padding: 3px 20px;
+    white-space: nowrap;
+}
+
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:hover,
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.dropdown-item-checkbox,
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item .dropdown-item-checkbox {
+    margin: 0 2px 4px 0;
+    vertical-align: middle;
+}
+
+.datagrid-header .actionBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled,
+.datagrid-footer .infoBar .btn-group > .btn-group .dropdown-menu .dropdown-item.disabled {
+    cursor: not-allowed;
+}
+
+.datagrid-table {
+    table-layout: fixed;
+}
+
+.datagrid-table a {
+    outline: 0;
+}
+
+.datagrid-table th > .column-header-anchor {
+    color: #333;
+    cursor: not-allowed;
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.datagrid-table th > .column-header-anchor.sortable {
+    cursor: pointer;
+}
+
+.datagrid-table th > .column-header-anchor > .text {
+    display: block;
+    margin: 0 16px 0 0;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.datagrid-table th > .column-header-anchor > .icon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+
+.datagrid-table th:hover,
+.datagrid-table th:active {
+    background: #fafafa;
+}
+
+.datagrid-table td {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.datagrid-table td.loading,
+.datagrid-table td.no-results {
+    background: #fff;
+    text-align: center;
+}
+
+.datagrid-table th.select-cell,
+.datagrid-table td.select-cell {
+    text-align: center;
+    width: 30px;
+}
+
+.datagrid-table th.select-cell .select-box,
+.datagrid-table td.select-cell .select-box {
+    margin: 0;
+    outline: 0;
+}
+
+.table-responsive .datagrid-table {
+    table-layout: inherit !important;
+}
+
+.table-responsive .datagrid-table th > .column-header-anchor > .text {
+    overflow: inherit !important;
+    -ms-text-overflow: inherit !important;
+    -o-text-overflow: inherit !important;
+    text-overflow: inherit !important;
+    white-space: inherit !important;
+}
+
+.table-responsive .datagrid-table td {
+    overflow: inherit !important;
+    -ms-text-overflow: inherit !important;
+    -o-text-overflow: inherit !important;
+    text-overflow: inherit !important;
+    white-space: inherit !important;
+}
+
+.datagrid-checkheader {
+    width: 30px;
+}

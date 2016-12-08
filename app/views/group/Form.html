@@ -1,0 +1,22 @@
+<div ng-controller="groupForm">
+    <div class="modal-header">
+        <h3 class="modal-title">组信息</h3>
+    </div>
+    <div class="modal-body container-fluid">
+        <form class="form-horizontal" role="form" name="form">
+            <ex-row>
+                <ex-column>
+                    <ex-textfield ex-field-label="组名称:" ex-flex-label="2" ng-model="data.Name"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close(data)"
+                ng-disabled="form.$invalid">
+            确定
+        </button>
+        <button class="btn btn-default" type="button" ng-click="$dismiss()">取消</button>
+    </div>
+</div>

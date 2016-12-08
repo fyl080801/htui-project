@@ -1,0 +1,37 @@
+<div class="container-fluid" ng-controller="terminalDetails">
+    <form role="form" class="form-horizontal" name="form">
+        <ex-actions>
+            <ex-action ex-text="编辑" ex-icon="glyphicon glyphicon-pencil"
+                       ng-click="$state.go('main.terminal_edit',{id:$data.Id})"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="名称:" ex-flex-label="2" ng-model="$data.Name"></ex-valuefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="代码:" ex-flex-label="2" ng-model="$data.TerminalCode"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="设备IP:" ex-flex-label="2" ng-model="$data.IpAddress"></ex-valuefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="终端类型:" ex-flex-label="2" ex-filter="enums"
+                                   ex-filterparams="{{$data.TerminalTypes}}"
+                                   ng-model="$data.TerminalType"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="分组:" ex-flex-label="2" ng-model="$data.Group.Name"></ex-valuefield>
+                </ex-column>
+                <ex-column ex-flex="6">
+
+                </ex-column>
+            </ex-row>
+        </ex-row>
+        <ex-valuefield ex-hidden="true" ng-model="$data.Id"></ex-valuefield>
+    </form>
+</div>

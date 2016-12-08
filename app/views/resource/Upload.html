@@ -1,0 +1,55 @@
+<div class="container-fluid" ng-controller="resourceupload">
+    <ex-actions>
+        <ex-action ex-icon="glyphicon glyphicon-pencil" ex-text="上传" ng-click="handlers.upload()"
+                   ng-disabled="upload.$invalid"></ex-action>
+        <ex-sp></ex-sp>
+        <ex-action ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign" ng-click="$state.back()"></ex-action>
+    </ex-actions>
+    <ex-row>
+        <form class="form-horizontal" role="form" name="upload">
+            <div class="panel panel-default" ng-repeat="file in data.files track by file.Id">
+                <div class="panel-heading">{{file.Title}}
+                    <button type="button" class="close" ng-click="handlers.remove(file.Id)"
+                            ng-hide="data.uploading"><span aria-hidden="true">&times;</span><span
+                            class="sr-only">Close</span></button>
+                </div>
+                <div class="container-fluid" ng-hide="data.uploading">
+                    <ex-row>
+                        &nbsp;
+                    </ex-row>
+                    <ex-row>
+                        <ex-column>
+                            <ex-textfield ex-field-label="素材名:" ex-flex-label="1" ng-model="file.Name"
+                                          ng-required="true"></ex-textfield>
+                        </ex-column>
+                    </ex-row>
+                    <ex-row>
+                        <ex-column ex-flex="6">
+                            <ex-valuefield ex-field-label="类型:" ex-flex-label="2"
+                                           ng-model="file.Ext"></ex-valuefield>
+                        </ex-column>
+                        <ex-column ex-flex="6">
+                            <ex-valuefield ex-field-label="大小:" ex-flex-label="2"
+                                           ng-model="file.Size"></ex-valuefield>
+                        </ex-column>
+                    </ex-row>
+                </div>
+                <div class="container-fluid" ng-hide="!data.uploading">
+                    <ex-row>
+                        &nbsp;
+                    </ex-row>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{file.Percentage}}"
+                             aria-valuemin="0"
+                             aria-valuemax="100" ng-style="{'width':file.Percentage+'%'}">
+                            {{file.Percentage}}%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ex-row>
+    <div class="row">
+        <div id="filepicker">添加文件</div>
+    </div>
+</div>

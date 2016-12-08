@@ -1,0 +1,8 @@
+<div class="container-fluid" ng-controller="resourcelist">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Resource/List" column-source="data.Columns">
+        <ex-action ex-text="上传文件" ex-icon="glyphicon glyphicon-floppy-open"
+                   ng-click="$state.go('main.resource_upload')"></ex-action>
+    </ex-datagrid>
+    <div id="popover"></div>
+    <!--<button popover="I appeared on mouse enter!" popover-trigger="mouseenter" class="btn btn-default">Mouseenter</button>-->
+</div>

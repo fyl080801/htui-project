@@ -1,0 +1,10 @@
+<div id="timefield-{{$id}}" class="form-group">
+    <label id="timefield-label-{{$id}}" class="control-label col-md-{{exFlexLabel}}" for="timefield-input-{{$id}}">{{exFieldLabel}}</label>
+    <div class="col-md-{{exFlexInput?exFlexInput:12-exFlexLabel}}">
+        <div class="input-group clockpicker">
+            <input id="timefield-input-{{$id}}" type="text" class="form-control" ng-model="exBindModel"
+                   ng-disabled="exBindDisabled" ng-required="exBindRequired">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+        </div>
+    </div>
+</div>

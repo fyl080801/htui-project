@@ -1,0 +1,8 @@
+<div class="container-fluid" ng-controller="terminalProgram">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Program/Publishable/{{$stateParams.id}}"
+                 column-source="$data.Columns" selection="true" ex-checks="$stores.selected">
+        <ex-action ex-text="确定" ex-icon="glyphicon glyphicon-ok-sign" ng-click="$handlers.submit()"></ex-action>
+        <ex-sp></ex-sp>
+        <ex-action ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign" ng-click="$state.back()"></ex-action>
+    </ex-datagrid>
+</div>

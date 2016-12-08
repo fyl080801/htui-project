@@ -1,0 +1,20 @@
+<div ng-controller="groups">
+    <div tabset>
+        <div tab heading="总区域" select="handlers.selectGroup()">
+            <ex-row>&nbsp;</ex-row>
+            <ex-datagrid autoload="true" url="/ProgramPublish/Group/List" column-source="data.Columns" pagging="false">
+                <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign"
+                           ng-click="handlers.add()"></ex-action>
+            </ex-datagrid>
+        </div>
+        <div tab ng-repeat="group in data.groups" heading="{{group.Name}}" active="group.active"
+             select="handlers.selectGroup(group.Id)">
+            <ex-row>&nbsp;</ex-row>
+            <ex-datagrid autoload="true" url="/ProgramPublish/Group/List/?parentId={{group.Id}}"
+                         column-source="data.Columns" pagging="false">
+                <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign"
+                           ng-click="handlers.add(group.Id)"></ex-action>
+            </ex-datagrid>
+        </div>
+    </div>
+</div>

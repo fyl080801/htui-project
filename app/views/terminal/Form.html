@@ -1,0 +1,55 @@
+<div class="container-fluid">
+    <form role="form" class="form-horizontal" name="form">
+        <ex-actions>
+            <ex-action ex-text="保存" ex-icon="glyphicon glyphicon-ok-sign" ng-click="handlers.save()"
+                       ng-disabled="form.$invalid"></ex-action>
+            <ex-sp></ex-sp>
+            <ex-action ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign" ng-click="$state.back()"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="名称:" ex-flex-label="2" ng-model="data.Name"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="代码:" ex-flex-label="2" ng-model="data.TerminalCode"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-combobox ex-field-label="终端类型:" ex-flex-label="2" ng-model="data.TerminalType"
+                                 ex-datasource="stores.TerminalTypes" ex-valueproperty="Id" ng-required="true"
+                                 ex-displayproperty="Text"></ex-combobox>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-combobox ex-field-label="分组:" ex-flex-label="2" ng-model="data.GroupId"
+                                 ex-datasource="stores.Groups" ex-valueproperty="Id" ng-required="true"
+                                 ex-displayproperty="Name"></ex-combobox>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="设备IP:" ex-flex-label="2" ng-model="data.IpAddress" ex-pattern="ip"
+                                  ng-required="false"></ex-textfield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="设备Mac:" ex-flex-label="2" ng-model="data.MacAddress" ex-pattern="mac"
+                                  ng-required="false"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="远程用户:" ex-flex-label="2" ng-model="data.UserName"
+                                  ng-required="false"></ex-textfield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="远程密码:" ex-flex-label="2" ng-model="data.Password"
+                                  ng-required="false" ex-type="password"></ex-textfield>
+                </ex-column>
+            </ex-row>
+        </ex-row>
+        <ex-valuefield ex-hidden="true" ng-model="data.Id"></ex-valuefield>
+    </form>
+</div>

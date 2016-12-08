@@ -1,0 +1,18 @@
+<div ng-controller="pubilshGroups">
+    <div class="modal-header">
+        <h3 class="modal-title">发布到组</h3>
+    </div>
+    <div class="modal-body container-fluid">
+        <form class="form-horizontal" role="form" name="resourceform">
+            <ex-treeview ex-Datasource="$stores.Datasource" ex-selection="$data.Selection"
+                         ex-selected="$handlers.Selected()"></ex-treeview>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close($data.Selection)"
+                ng-disabled="form.$invalid">
+            确定
+        </button>
+        <button class="btn btn-default" type="button" ng-click="$dismiss()">取消</button>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container-fluid" ng-controller="programdetails">
+    <div tabset class="row">
+        <div tab heading="基本信息">
+            <ex-row>&nbsp;</ex-row>
+            <div ui-view="details"></div>
+        </div>
+        <div tab heading="节目素材">
+            <ex-row>&nbsp;</ex-row>
+            <div ui-view="content"></div>
+        </div>
+        <div tab heading="审核记录">
+            <ex-row>&nbsp;</ex-row>
+            <div ui-view="record"></div>
+        </div>
+    </div>
+</div>

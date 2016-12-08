@@ -1,0 +1,21 @@
+<div class="container-fluid row" ng-controller="programresourceedit">
+    <ex-datagrid autoload="true" url="/ProgramPublish/Program/Resources/{{$stateParams.id}}"
+                 column-source="data.Columns" gridscope="{{gridscope}}">
+        <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+                <i class="glyphicon glyphicon-plus-sign"></i>&nbsp;添加&nbsp;<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="" ng-click="handlers.addFile()"><i class="glyphicon glyphicon-film"></i>&nbsp;多媒体</a></li>
+                <li><a href="" ng-click="handlers.addText()"><i class="glyphicon glyphicon-font"></i>&nbsp;文字</a></li>
+                <li><a href="" ng-click="handlers.addLink()"><i class="glyphicon glyphicon-link"></i>&nbsp;链接</a></li>
+            </ul>
+        </div>
+        <ex-sp></ex-sp>
+        <ex-action ex-text="选择现有" ex-icon="glyphicon glyphicon-asterisk"
+                   ng-click="$state.go('main.program_resource_select',{id:$stateParams.id})"></ex-action>
+        <ex-sp></ex-sp>
+        <ex-link ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign"
+                 ng-click="$state.go('main.program_details',{id:$stateParams.id})"></ex-link>
+    </ex-datagrid>
+</div>

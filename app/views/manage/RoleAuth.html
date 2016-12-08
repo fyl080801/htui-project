@@ -1,0 +1,35 @@
+<div class="container-fluid" ng-controller="roleauth">
+    <form class="form-horizontal" role="form">
+        <ex-actions>
+            <ex-action ex-text="保存" ex-icon="glyphicon glyphicon-ok-sign" ng-click="handlers.save()"></ex-action>
+            <ex-sp></ex-sp>
+            <ex-action ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign"
+                       ng-click="$state.go('main.role_details',{id:$stateParams.id})"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column ex-flex="4">
+                    <div class="list-group">
+                        <button class="list-group-item" ng-repeat="group in stores.groups"
+                                ng-click="handlers.changeGroup(group)">
+                            <i class="glyphicon glyphicon-tags"></i>
+                            &nbsp;{{group}}
+                        </button>
+                    </div>
+                </ex-column>
+                <ex-column ex-flex="8">
+                    <ex-group ex-title="data.current">
+                        <form class="form-horizontal" role="form">
+                            <label class="checkbox checkbox-inline"
+                                   ng-repeat="auth in stores.authorizes|authGroupFilter:data.current">
+                                <input type="checkbox" value="{{auth.Id}}" ng-checked="auth.IsAuthorized"
+                                       ng-click="handlers.changeAuth($event, auth.Id)"/>
+                                &nbsp;{{auth.AuthorizeName}}
+                            </label>
+                        </form>
+                    </ex-group>
+                </ex-column>
+            </ex-row>
+        </ex-row>
+    </form>
+</div>

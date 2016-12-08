@@ -1,0 +1,7 @@
+<div id="group-{{$id}}" class="panel panel-default">
+    <div ng-if="exTitle" class="panel-heading">
+        <span ng-if="exIcon"><i class="glyphicon {{exIcon}}"></i>&nbsp;</span>
+        {{exTitle}}
+    </div>
+    <div id="group-body-{{$id}}" class="panel-body" ng-transclude></div>
+</div>

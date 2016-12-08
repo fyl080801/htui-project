@@ -1,0 +1,48 @@
+<div class="container" ng-controller="login">
+    <div class="modal" id="loginForm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><i class="glyphicon glyphicon-user"></i> 用户登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form name='loginForm' role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <!--<label for="username" class="control-label col-sm-2">用户名:</label>-->
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" id="username" ng-model="user.username"
+                                       placeholder="用户名" required/></div>
+                        </div>
+                        <div class="form-group">
+                            <!--<label for="password" class="control-label col-sm-2">密码:</label>-->
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" id="password" ng-model="user.password"
+                                       placeholder="密码" required/></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-primary" ng-disabled="loginForm.$invalid" type="submit" value="登录"
+                           ng-click="login(user)"/>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+</div>
+<script>
+    var $modal = $('#loginForm');
+    $modal.on('shown.bs.modal', function () {
+        var $this = $(this);
+        var $modal_dialog = $this.find('.modal-dialog');
+        var m_top = ($(document).height() - $modal_dialog.height()) / 2;
+        $modal_dialog.css({'margin': m_top + 'px auto'});
+    });
+    $modal.modal({
+        backdrop: false,
+        keyboard: false,
+        refreshPositions: false
+    });
+</script>

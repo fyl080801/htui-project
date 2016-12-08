@@ -1,0 +1,7 @@
+<div ng-controller="terminals">
+    <ex-datagrid autoload="true" url="/ProgramPublish/Terminal/List" column-source="data.Columns"
+                 ectraparams="data.ExtraParams">
+        <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign"
+                   ng-click="$state.go('main.terminal_new')"></ex-action>
+    </ex-datagrid>
+</div>

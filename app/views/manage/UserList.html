@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <ex-datagrid class="row" autoload="true" url="/User/Users" column-source="data.Columns">
+        <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign" ex-authorize="/User/Save"
+                   ng-click="$state.go('main.user_new')"></ex-action>
+    </ex-datagrid>
+</div>

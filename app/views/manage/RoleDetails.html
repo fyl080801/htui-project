@@ -1,0 +1,27 @@
+<div class="container-fluid" ng-controller="roledetails">
+    <form class="form-horizontal">
+        <ex-actions>
+            <ex-action ex-icon="glyphicon glyphicon-pencil" ng-click="$state.go('main.role_edit',{id:data.Id})"
+                       ex-text="编辑" ex-authorize="/Role/Save"></ex-action>
+            <ex-sp></ex-sp>
+            <ex-action ex-icon="glyphicon glyphicon-user" ng-click="$state.go('main.role_details_members',{id:data.Id})"
+                       ex-text="成员" ex-authorize="/Role/Save"></ex-action>
+            <ex-sp></ex-sp>
+            <ex-action ex-icon="glyphicon glyphicon-asterisk"
+                       ng-click="$state.go('main.role_details_auth',{id:data.Id})"
+                       ex-text="权限" ex-authorize="/Role/Save"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-valuefield ex-field-label="角色名:" ex-flex-label="2" ng-model="data.Name"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="12">
+                    <ex-valuefield ex-field-label="说明:" ex-flex-label="1" ng-model="data.Description"></ex-valuefield>
+                </ex-column>
+            </ex-row>
+        </ex-row>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="container-fluid" ng-controller="useredit" novalidate="novalidate">
+    <form role="form" class="form-horizontal" name="form">
+        <ex-actions>
+            <ex-action ex-text="保存" ex-icon="glyphicon glyphicon-ok-sign" ng-click="save()"
+                       ng-disabled="form.$invalid"></ex-action>
+            <ex-sp></ex-sp>
+            <ex-action ex-text="取消" ex-icon="glyphicon glyphicon-remove-sign" ng-click="$state.back()"></ex-action>
+        </ex-actions>
+        <ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="用户名:" ex-flex-label="2" ng-model="data.Username"
+                                  ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="姓:" ex-flex-label="2" ng-model="data.LastName"></ex-textfield>
+                </ex-column>
+                <ex-column ex-flex="6">
+                    <ex-textfield ex-field-label="名:" ex-flex-label="2" ng-model="data.FirstName"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="12">
+                    <ex-textfield ex-field-label="邮箱:" ex-pattern="email" ex-flex-label="1"
+                                  ng-model="data.Email" ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+        </ex-row>
+        <ex-valuefield ex-hidden="true" ng-model="data.Id"></ex-valuefield>
+    </form>
+</div>

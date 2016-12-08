@@ -1,0 +1,8 @@
+<div class="container-fluid" ng-controller="notify">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Notification/List"
+                 column-source="$stores.Columns">
+        <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign"
+                   ex-authorize="/ProgramPublish/Notification/Save"
+                   ng-click="$state.go('main.notify_new')"></ex-action>
+    </ex-datagrid>
+</div>

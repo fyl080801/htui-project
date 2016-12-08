@@ -1,0 +1,17 @@
+<div ng-controller="pubilshTerminals">
+    <div class="modal-header">
+        <h3 class="modal-title">发布到组</h3>
+    </div>
+    <div class="modal-body container-fluid">
+        <ex-datagrid autoload="true" url="/ProgramPublish/Terminal/List" column-source="$stores.SubColumns"
+                     selection="true" ex-checks="$stores.Selected">
+        </ex-datagrid>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="$close($stores.Selected)"
+                ng-disabled="form.$invalid">
+            确定
+        </button>
+        <button class="btn btn-default" type="button" ng-click="$dismiss()">取消</button>
+    </div>
+</div>

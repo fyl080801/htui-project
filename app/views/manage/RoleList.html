@@ -1,0 +1,6 @@
+<div class="container-fluid" ng-controller="roles">
+    <ex-datagrid class="row" autoload="true" url="/Role/Roles" column-source="data.Columns">
+        <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign" ex-authorize="/Role/Save"
+                   ng-click="$state.go('main.role_new')"></ex-action>
+    </ex-datagrid>
+</div>

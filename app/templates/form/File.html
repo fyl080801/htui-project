@@ -1,0 +1,21 @@
+<div id="filefield-{{$id}}" class="form-group">
+    <label id="filefield-label-{{$id}}" class="control-label col-md-{{exFlexLabel}}" for="filefield-button-{{$id}}">{{exFieldLabel}}</label>
+    <div class="col-md-{{exFlexInput?exFlexInput:12-exFlexLabel}}">
+        <div class="input-group">
+            <input id="filefield-input-{{$id}}" type="text" class="form-control" ng-disabled="true"
+                   ng-model="exBindModel" ng-required="exBindRequired"/>
+            <button id="filefield-button-{{$id}}" type="button" class="btn btn-default input-group-addon"
+                    ng-disabled="exBindDisabled||data.uploading" ng-click="handlers.chooseFile()">
+                <i class="glyphicon glyphicon-folder-open"></i> &nbsp;选择
+            </button>
+        </div>
+        <div class="row" ng-hide="!data.uploading">&nbsp;</div>
+        <div class="progress" id="filefield-process-{{$id}}" ng-hide="!data.uploading">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{data.percentage}}"
+                 aria-valuemin="0" aria-valuemax="100" ng-style="{'width':data.percentage+'%'}">
+                {{data.percentage}}%
+            </div>
+        </div>
+    </div>
+    <div class="filepicker" ng-hide="true"></div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container-fluid row" ng-controller="programresources">
+    <ex-datagrid autoload="true"
+                 url="/ProgramPublish/Program/Resources/{{$stateParams.id}}"
+                 column-source="data.Columns">
+        <!--<ex-action ex-icon="glyphicon glyphicon-pencil"-->
+                   <!--ng-if="data.State===1||data.State===6"-->
+                   <!--ng-click="$state.go('main.program_resource',{id:$stateParams.id})"-->
+                   <!--ex-text="编辑" ex-authorize="/ProgramPublish/Program/Save"></ex-action>-->
+    </ex-datagrid>
+</div>

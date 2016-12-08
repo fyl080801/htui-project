@@ -1,0 +1,14 @@
+<div id="checkboxfield-{{$id}}" class="form-group">
+    <label id="checkboxfield-label-{{$id}}" ng-hide="!exFieldLabel" class="control-label col-md-{{exFlexLabel}}"
+           for="checkboxfield-input-{{$id}}">{{exFieldLabel}}</label>
+    <div class="col-md-{{exFlexInput?exFlexInput:12-exFlexLabel}}">
+        <div class="checkbox">
+            <label>
+                <input id="checkboxfield-input-{{$id}}" type="checkbox" ng-disabled="exBindDisabled"
+                       ng-model="exBindModel" ng-checked="exBindModel"
+                       ng-true-value="{{exBindTrueValue?exBindTrueValue:'true'}}"
+                       ng-false-value="{{exBindFalseValue?exBindFalseValue:'false'}}">&nbsp;{{exBoxlabel}}
+            </label>
+        </div>
+    </div>
+</div>

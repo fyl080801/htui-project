@@ -1,0 +1,17 @@
+<div class="container-fluid" ng-controller="publish">
+    <ex-datagrid class="row" autoload="true" url="/ProgramPublish/Terminal/List" column-source="$data.Columns">
+        <div class="btn-group" dropdown>
+            <button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle>
+                选择分组&nbsp;<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <!--<li ng-repeat="item in stores.source" ng-click="handlers.change(item)">-->
+                <!--<a href=""><span style="margin-left: 20px;" ng-repeat="n in []|range:item.deep"></span>{{item[exDisplayproperty?exDisplayproperty:'text']}}</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
+
+        <ex-action ex-icon="glyphicon glyphicon-pencil"
+                   ex-text="选择节目"></ex-action>
+    </ex-datagrid>
+</div>
