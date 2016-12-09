@@ -14,7 +14,7 @@ define([
             };
 
             this.save = function (user) {
-                return $http.post('/User/Save',
+                return $http.post('/ProgramPublish/GroupUser/Save',
                     user,
                     {
                         serverRequest: true
@@ -22,7 +22,7 @@ define([
             };
 
             this.load = function (id) {
-                return $http.get('/User/Details/' + id,
+                return $http.get('/ProgramPublish/GroupUser/Load/' + id,
                     {
                         serverRequest: true
                     });

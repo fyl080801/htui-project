@@ -1,6 +1,6 @@
 <div ng-controller="groups">
     <div tabset>
-        <div tab heading="总区域" select="handlers.selectGroup()">
+        <div tab heading="所属区域" select="handlers.selectGroup()">
             <ex-row>&nbsp;</ex-row>
             <ex-datagrid autoload="true" url="/ProgramPublish/Group/List" column-source="data.Columns" pagging="false">
                 <ex-action ex-text="添加" ex-icon="glyphicon glyphicon-plus-sign"

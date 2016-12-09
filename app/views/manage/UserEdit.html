@@ -22,9 +22,16 @@
                 </ex-column>
             </ex-row>
             <ex-row>
-                <ex-column ex-flex="12">
+                <ex-column>
                     <ex-textfield ex-field-label="邮箱:" ex-pattern="email" ex-flex-label="1"
                                   ng-model="data.Email" ng-required="true"></ex-textfield>
+                </ex-column>
+            </ex-row>
+            <ex-row>
+                <ex-column ex-flex="6">
+                    <ex-combobox ex-field-label="分组:" ex-flex-label="2" ng-model="data.GroupId"
+                                 ex-datasource="stores.Groups" ex-valueproperty="Id"
+                                 ex-displayproperty="Name"></ex-combobox>
                 </ex-column>
             </ex-row>
         </ex-row>

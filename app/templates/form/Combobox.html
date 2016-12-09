@@ -13,6 +13,8 @@
                     <a href=""><span style="margin-left: 20px;" ng-repeat="n in []|range:item.deep"></span>{{item[exDisplayproperty?exDisplayproperty:'text']}}</a>
                 </li>
             </ul>
+            <button id="combobox-clear-{{$id}}" type="button" class="btn btn-default input-group-addon"
+                    ng-click="handlers.Clear()"><i class="glyphicon glyphicon-remove"></i></button>
             <button id="combobox-button-{{$id}}" type="button" class="btn btn-default input-group-addon dropdown-toggle"
                     dropdown-toggle ng-disabled="exBindDisabled" ng-click="handlers.Open()">
                 <i class="caret"></i>

@@ -16,6 +16,9 @@ define(function (require, exports, module) {
                 "text": "角色管理",
                 "href": "#/main/role"
             }, {
+                "text": "分组管理",
+                "href": "#/main/groups"
+            }, {
                 "text": "操作日志",
                 "href": "#/main/log"
             }]
@@ -39,9 +42,6 @@ define(function (require, exports, module) {
             "text": "终端机管理",
             "icon": "glyphicon glyphicon-facetime-video",
             "links": [{
-                "text": "设备分组",
-                "href": "#/main/groups"
-            }, {
                 "text": "设备列表",
                 "href": "#/main/terminal"
             }, {

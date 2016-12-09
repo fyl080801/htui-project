@@ -260,6 +260,11 @@ define([
                     $scope.handlers.Load();
                 };
 
+                $scope.handlers.Clear = function () {
+                    $scope.exBindModel = null;
+                    $scope.data.selected = null;
+                };
+
                 if ($scope.autoload)
                     $scope.handlers.Load();
 

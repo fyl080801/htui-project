@@ -77,8 +77,8 @@ define([
         }
     ]);
 
-    application.controller('usernew', ['$scope', '$state', 'userService',
-        function ($scope, $state, userService) {
+    application.controller('usernew', ['$scope', '$state', 'userService', 'groupService',
+        function ($scope, $state, userService, groupService) {
             $scope.data = {};
             $scope.save = function () {
                 userService.save($scope.data)
@@ -86,6 +86,11 @@ define([
                         $state.go('main.user_details', {id: response.data})
                     });
             };
+
+            groupService.all()
+                .then(function (data) {
+                    $scope.stores.Groups = data;
+                });
         }
     ]);
 
@@ -98,18 +103,23 @@ define([
         }
     ]);
 
-    application.controller('useredit', ['$scope', '$state', '$stateParams', 'userService',
-        function ($scope, $state, $stateParams, userService) {
-            userService.load($stateParams.id)
-                .success(function (response) {
-                    $scope.data = response.data;
-                });
+    application.controller('useredit', ['$scope', '$state', '$stateParams', 'userService', 'groupService',
+        function ($scope, $state, $stateParams, userService, groupService) {
+
             $scope.save = function () {
                 userService.save($scope.data)
                     .success(function (response) {
                         $state.go('main.user_details', {id: response.data});
                     });
             };
+            groupService.all()
+                .then(function (data) {
+                    $scope.stores.Groups = data;
+                    userService.load($stateParams.id)
+                        .success(function (response) {
+                            $scope.data = response.data;
+                        });
+                });
         }
     ]);
 
