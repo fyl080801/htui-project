@@ -35,8 +35,10 @@ define([
                 return $http.get('/ProgramPublish/Program/DeleteResource/' + id, {serverRequest: true});
             };
 
-            this.newFileToProgram = function (data) {
-                return $http.post('/ProgramPublish/Program/AddFile', data, {serverRequest: true});
+            this.newFileToProgram = function (data, saveResource) {
+                var url = '/ProgramPublish/Program/AddFile';
+                url = saveResource ? url + '/?addresource=true' : url;
+                return $http.post(url, data, {serverRequest: true});
             };
 
             this.newTextToProgram = function (data) {

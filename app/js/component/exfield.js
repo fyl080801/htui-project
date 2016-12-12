@@ -308,8 +308,8 @@ define([
     /**
      *
      */
-    application.directive('exFile', ['$timeout', '$modal', '$http', '$appConfig',
-        function ($timeout, $modal, $http, $appConfig) {
+    application.directive('exFile', ['$timeout', '$modal', '$http', '$appConfig', 'mediaDefine',
+        function ($timeout, $modal, $http, $appConfig, mediaDefine) {
             var WebUploader = require('webuploader');
 
             var _scope = $.extend({
@@ -328,12 +328,8 @@ define([
                     resize: false,
                     chunked: true,
                     auto: true,
-                    chunkSize: 2048000//,
-                    // accept: {
-                    //     title: '素材文件',
-                    //     extensions: 'flv,ppt,pptx,png,gif,jpg,bmp,avi,mp4,mpeg,mkv,mov',
-                    //     mimeTypes: $scope.exMimetypes.split(',')
-                    // }
+                    chunkSize: 2048000,
+                    accept: mediaDefine
                 }).on('fileQueued', function (file) {
                     $scope.data.file = {
                         Id: file.id,

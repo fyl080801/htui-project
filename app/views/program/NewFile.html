@@ -8,12 +8,16 @@
                 <ex-column>
                     <!--<ex-textfield ex-field-label="位置Id:" ex-flex-label="2" ng-model="data.DisplayId"-->
                     <!--ng-required="true"></ex-textfield>-->
+                    <ex-textfield ex-field-label="名称:" ex-flex-label="2" ng-model="data.Name"
+                                  ng-required="true"></ex-textfield>
                     <ex-combobox ex-field-label="显示区域:" ex-flex-label="2" ng-model="data.DisplayId"
                                  ex-datasource="stores.Areas" ex-valueproperty="Code" ng-required="true"
                                  ex-displayproperty="Name"></ex-combobox>
                     <ex-file ex-field-label="文件:" ex-flex-label="2" ng-model="data.Content"
                              ex-server="/ProgramPublish/Resource/Upload"
                              ex-submit="/ProgramPublish/Resource/Merge"></ex-file>
+                    <ex-checkboxfield ex-field-label="存为素材:" ex-flex-label="2"
+                                      ng-model="data.SaveResource"></ex-checkboxfield>
                 </ex-column>
             </ex-row>
         </form>

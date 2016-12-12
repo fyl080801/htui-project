@@ -35,7 +35,7 @@ define(function (require, exports, module) {
                 "text": "待审核节目",
                 "href": "#/main/examines"
             }, {
-                "text": "发布通知",
+                "text": "通知管理",
                 "href": "#/main/notify"
             }]
         }, {

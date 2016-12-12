@@ -21,12 +21,12 @@ define([
         '6': '文字'
     };
 
-    var popupThumb = function (ev, scope, data, $appConfig) {
+    var popupThumb = function (ev, scope, data, $appConfig, url) {
         $(ev.target).popover({
             container: 'body',
             html: true,
             content: '<a href="#" class="thumbnail">' +
-            '       <img src="' + $appConfig.serverUrl + '/ProgramPublish/Resource/Thumb/' + data.Id + '" />' +
+            '       <img src="' + $appConfig.serverUrl + url + data.Id + '" />' +
             '</a>'
         });
         $(ev.target).popover('show');
@@ -36,38 +36,23 @@ define([
         $(ev.target).popover('destroy');
     };
 
-    application.controller('programresources', ['$scope', '$state', '$stateParams',
-        function ($scope, $state, $stateParams) {
+    application.controller('programresources', ['$scope', '$state', '$stateParams', '$appConfig', '$window',
+        function ($scope, $state, $stateParams, $appConfig, $window) {
             $scope.stores = {};
             $scope.data = {};
             $scope.handlers = {};
 
             $scope.data.Columns = [{
                 type: 'data',
-                name: 'CategoryId',
-                header: '素材类型',
-                filter: 'enums',
-                filterargs: categories
+                name: 'Name',
+                header: '素材名称',
+                handlers: {
+                    mouseover: function (ev, scope, data) {
+                        popupThumb(ev, scope, data, $appConfig, '/ProgramPublish/Program/ResourceThumb/');
+                    },
+                    mouseleave: hideThumb
+                }
             }, {
-                type: 'data',
-                name: 'DisplayId',
-                header: '位置Id'
-            }];
-        }
-    ]);
-
-    application.controller('programresourceedit', ['$scope', '$rootScope', '$state', '$stateParams', '$appConfig', '$modal', 'resourceService', 'modalComponent',
-        function ($scope, $rootScope, $state, $stateParams, $appConfig, $modal, resourceService, modalComponent) {
-            $scope.stores = {};
-            $scope.data = {};
-            $scope.handlers = {};
-
-            var gridscope;
-            $scope.$on('gridready', function (scope) {
-                gridscope = scope.targetScope;
-            });
-
-            $scope.data.Columns = [{
                 type: 'data',
                 name: 'CategoryId',
                 header: '素材类型',
@@ -81,6 +66,57 @@ define([
                 type: 'command',
                 header: '操作',
                 commands: [{
+                    icon: 'glyphicon-save',
+                    tooltip: '下载',
+                    handler: function (e, data) {
+                        $window.open($appConfig.serverUrl + '/ProgramPublish/Program/DownloadResource/' + data.Id);
+                    }
+                }]
+            }];
+        }
+    ]);
+
+    application.controller('programresourceedit', ['$scope', '$rootScope', '$state', '$stateParams', '$appConfig', '$modal', 'resourceService', 'modalComponent', '$window',
+        function ($scope, $rootScope, $state, $stateParams, $appConfig, $modal, resourceService, modalComponent, $window) {
+            $scope.stores = {};
+            $scope.data = {};
+            $scope.handlers = {};
+
+            var gridscope;
+            $scope.$on('gridready', function (scope) {
+                gridscope = scope.targetScope;
+            });
+
+            $scope.data.Columns = [{
+                type: 'data',
+                name: 'Name',
+                header: '素材名称',
+                handlers: {
+                    mouseover: function (ev, scope, data) {
+                        popupThumb(ev, scope, data, $appConfig, '/ProgramPublish/Program/ResourceThumb/');
+                    },
+                    mouseleave: hideThumb
+                }
+            }, {
+                type: 'data',
+                name: 'CategoryId',
+                header: '素材类型',
+                filter: 'enums',
+                filterargs: categories
+            }, {
+                type: 'data',
+                name: 'DisplayId',
+                header: '位置Id'
+            }, {
+                type: 'command',
+                header: '操作',
+                commands: [{
+                    icon: 'glyphicon-save',
+                    tooltip: '下载',
+                    handler: function (e, data) {
+                        $window.open($appConfig.serverUrl + '/ProgramPublish/Program/DownloadResource/' + data.Id);
+                    }
+                }, {
                     icon: 'glyphicon-trash',
                     tooltip: '删除',
                     style: 'danger',
@@ -104,9 +140,10 @@ define([
                     if (!result)return;
                     resourceService.newFileToProgram({
                         ProgramId: $stateParams.id,
+                        Name: result.Name,
                         Content: result.Content,
                         DisplayId: result.DisplayId
-                    }).success(function () {
+                    }, result.SaveResource).success(function () {
                         gridscope.handlers.Load();
                     });
                 });
@@ -173,7 +210,7 @@ define([
                 header: '素材名称',
                 handlers: {
                     mouseover: function (ev, scope, data) {
-                        popupThumb(ev, scope, data, $appConfig);
+                        popupThumb(ev, scope, data, $appConfig, '/ProgramPublish/Resource/Thumb/');
                     },
                     mouseleave: hideThumb
                 }
@@ -237,7 +274,7 @@ define([
                 header: '素材名称',
                 handlers: {
                     mouseover: function (ev, scope, data) {
-                        popupThumb(ev, scope, data, $appConfig);
+                        popupThumb(ev, scope, data, $appConfig, '/ProgramPublish/Resource/Thumb/');
                     },
                     mouseleave: hideThumb
                 }
@@ -295,8 +332,8 @@ define([
         }
     ]);
 
-    application.controller('resourceupload', ['$scope', '$http', '$appConfig',
-        function ($scope, $http, $appConfig) {
+    application.controller('resourceupload', ['$scope', '$http', '$appConfig', 'mediaDefine',
+        function ($scope, $http, $appConfig, mediaDefine) {
             $scope.stores = {};
             $scope.data = {};
             $scope.handlers = {};
@@ -311,25 +348,7 @@ define([
                 resize: false,
                 chunked: true,
                 chunkSize: 2048000,
-                accept: {
-                    title: '素材文件',
-                    extensions: 'flv,ppt,pptx,png,gif,jpg,bmp,avi,mp4,mpeg,mkv,mov',
-                    mimeTypes: [
-                        'image/png',
-                        'image/gif',
-                        'image/bmp',
-                        'image/jpeg',
-                        'application/vnd.ms-powerpoint',
-                        'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-                        'video/x-flv',
-                        'video/mp4',
-                        'video/x-msvideo',
-                        'video/mp4',
-                        'video/x-matroska',
-                        'video/mpeg',
-                        'video/quicktime'
-                    ]
-                }
+                accept: mediaDefine
             }).on('fileQueued', function (file) {
                 $scope.data.files[file.id] = {
                     Id: file.id,

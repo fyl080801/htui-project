@@ -17,6 +17,25 @@ define([
     application.config(['$provide',
         function ($provide) {
             $provide.constant('$appEnvironment', {});
+            $provide.value('mediaDefine', {
+                title: '素材文件',
+                extensions: 'flv,ppt,pptx,png,gif,jpg,bmp,avi,mp4,mpeg,mkv,mov',
+                mimeTypes: [
+                    'image/png',
+                    'image/gif',
+                    'image/bmp',
+                    'image/jpeg',
+                    'application/vnd.ms-powerpoint',
+                    'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+                    'flv-application/octet-stream',
+                    'video/mp4',
+                    'video/x-msvideo',
+                    'video/mp4',
+                    'video/x-matroska',
+                    'video/mpeg',
+                    'video/quicktime'
+                ]
+            });
         }
     ]);
 
