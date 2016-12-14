@@ -290,6 +290,7 @@ define([
                     controller: 'terminalForm'
                 }
             };
+
             $.each(states, function (index, item) {
                 $stateProvider.state(index, item);
             });

@@ -18,7 +18,8 @@ define([
         '3': '视频',
         '4': '图片',
         '5': '网址',
-        '6': '文字'
+        '6': '文字',
+        '7': '文档'
     };
 
     var popupThumb = function (ev, scope, data, $appConfig, url) {

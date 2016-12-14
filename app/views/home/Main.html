@@ -51,13 +51,13 @@
 </div>
 
 <script id="recursion" type="text/ng-template">
-    <li ng-repeat="lnk in links" ng-repeated="$('#accordion').myAccordion()">
+    <li ng-repeat="lnk in links | linkAuthorize" ng-repeated="$('#accordion').myAccordion()">
         <div class="link"><i ng-class="lnk.icon"></i> {{lnk.text}}<i class="fa fa-chevron-down"></i></div>
         <ul class="submenu" ng-if="lnk.links.length" ng-include="'subrecursion'" ng-init="sublinks=lnk.links"></ul>
     </li>
 </script>
 <script id="subrecursion" type="text/ng-template">
-    <li ng-repeat="sublink in sublinks">
+    <li ng-repeat="sublink in sublinks | linkAuthorize">
         <a href="{{sublink.href}}">{{sublink.text}}</a>
     </li>
 </script>

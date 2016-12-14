@@ -30,6 +30,7 @@
     "html5shiv": "3.7.3",
     "requirejs": "latest",
     "require-css": "0.1.8",
+    "requirejs/text":"2.0.15",
     "respond": "1.4.2"
   }
 }

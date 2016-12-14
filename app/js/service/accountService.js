@@ -4,8 +4,8 @@ define([
 ], function (require, application) {
     'use strict';
 
-    application.service('accountService', ['$http', '$state', 'httpService',
-        function ($http, $state, httpService) {
+    application.service('accountService', ['$http', '$state', 'httpService', 'sessionService', '$appEnvironment',
+        function ($http, $state, httpService, sessionService, $appEnvironment) {
             this.login = function (username, password) {
                 $http.post('/Account/Login',
                     {
@@ -15,8 +15,17 @@ define([
                         serverRequest: true
                     })
                     .success(function (response) {
-                        if (response && response.success)
-                            $state.go('main');
+                        if (response && response.success) {
+                            sessionService.checkSession()
+                                .success(function (response) {
+                                    if (response.data.Session.Vaild) {
+                                        $appEnvironment.session = response.data;
+                                        $state.go('main');
+                                    } else {
+                                        $state.go('login');
+                                    }
+                                });
+                        }
                     });
             };
 

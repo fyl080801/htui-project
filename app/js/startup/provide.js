@@ -17,15 +17,16 @@ define([
     application.config(['$provide',
         function ($provide) {
             $provide.constant('$appEnvironment', {});
-            $provide.value('mediaDefine', {
+            $provide.constant('mediaDefine', {
                 title: '素材文件',
-                extensions: 'flv,ppt,pptx,png,gif,jpg,bmp,avi,mp4,mpeg,mkv,mov',
+                extensions: 'flv,ppt,pptx,pps,ppsx,doc,docx,png,gif,jpg,bmp,avi,mp4,mpeg,mkv,mov',
                 mimeTypes: [
                     'image/png',
                     'image/gif',
                     'image/bmp',
                     'image/jpeg',
                     'application/vnd.ms-powerpoint',
+                    'application/msword',
                     'application/vnd.openxmlformats-officedocument.presentationml.presentation',
                     'flv-application/octet-stream',
                     'video/mp4',

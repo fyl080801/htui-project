@@ -29,6 +29,7 @@ define([
                         config.headers['Cache-Control'] = 'no-cache';
                         config.headers['Pragma'] = 'no-cache';
                         config.headers['X-Requested-With'] = 'XMLHttpRequest';
+                        config.headers['Access-Control-Allow-Headers'] = '*';
                         config.headers['Access-Control-Allow-Origin'] = '*';
                         var url = $appConfig.serverUrl ? $appConfig.serverUrl : '';
                         //url = ($appConfig.serverPath && $appConfig.serverPath != '') ? url + $appConfig.serverPath : url;
