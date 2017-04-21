@@ -42,6 +42,24 @@
                 </ex-column>
             </ex-row>
             <ex-row>
+                <ex-column>
+                    <div class="form-group">
+                        <label class="control-label col-md-1">播出日:</label>
+                        <div class="col-md-11">
+                            <ul class="list-inline">
+                                <li class="form-control-static" ng-show="stores.Weeks['1']">周一</li>
+                                <li class="form-control-static" ng-show="stores.Weeks['2']">周二</li>
+                                <li class="form-control-static" ng-show="stores.Weeks['3']">周三</li>
+                                <li class="form-control-static" ng-show="stores.Weeks['4']">周四</li>
+                                <li class="form-control-static" ng-show="stores.Weeks['5']">周五</li>
+                                <li class="form-control-static" ng-show="stores.Weeks['6']">周六</li>
+                                <li class="form-control-static" ng-show="stores.Weeks['7']">周日</li>
+                            </ul>
+                        </div>
+                    </div>
+                </ex-column>
+            </ex-row>
+            <ex-row>
                 <ex-column ex-flex="6">
                     <ex-valuefield ex-field-label="开始时间:" ex-flex-label="2" ng-model="data.StartTime"
                                    ex-filter="date" ex-format="HH:mm">

@@ -5,7 +5,7 @@ define([
     'angular',
     'angular-async-loader',
     'ui-bootstrap',
-    'angular-ui-router',
+    'angular-ui-router'
 ], function (require, exports, module) {
     'use strict';
 

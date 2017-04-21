@@ -119,12 +119,29 @@ define([
             $scope.data = {};
             $scope.handlers = {};
 
+            $scope.stores.Weeks = {
+                '1': false,
+                '2': false,
+                '3': false,
+                '4': false,
+                '5': false,
+                '6': false,
+                '7': false
+            };
+
             programService.templates()
                 .then(function (data) {
                     $scope.stores.Templates = data;
                 });
 
             $scope.handlers.save = function () {
+                $scope.data.Weeks = '';
+                $.each($scope.stores.Weeks, function (index, item) {
+                    if (item === true) {
+                        $scope.data.Weeks += (index + ',');
+                    }
+                });
+                $scope.data.Weeks = $scope.data.Weeks.length > 0 ? $scope.data.Weeks.substring(0, $scope.data.Weeks.length - 1) : '';
                 programService.save($scope.data)
                     .success(function (response) {
                         $state.go('main.program_details', {id: response.data});
@@ -139,6 +156,16 @@ define([
             $scope.data = {};
             $scope.handlers = {};
 
+            $scope.stores.Weeks = {
+                '1': false,
+                '2': false,
+                '3': false,
+                '4': false,
+                '5': false,
+                '6': false,
+                '7': false
+            };
+
             programService.templates()
                 .then(function (data) {
                     $scope.stores.Templates = data;
@@ -146,10 +173,23 @@ define([
 
             programService.list($stateParams.id)
                 .success(function (response) {
+                    var weeks = ',' + response.data.Weeks + ',';
+                    $.each($scope.stores.Weeks, function (index, item) {
+                        if (weeks.indexOf(',' + index + ',') >= 0) {
+                            $scope.stores.Weeks[index] = true;
+                        }
+                    });
                     $scope.data = response.data;
                 });
 
             $scope.handlers.save = function () {
+                $scope.data.Weeks = '';
+                $.each($scope.stores.Weeks, function (index, item) {
+                    if (item === true) {
+                        $scope.data.Weeks += (index + ',');
+                    }
+                });
+                $scope.data.Weeks = $scope.data.Weeks.length > 0 ? $scope.data.Weeks.substring(0, $scope.data.Weeks.length - 1) : '';
                 programService.save($scope.data)
                     .success(function (response) {
                         $state.go('main.program_details', {id: response.data});
@@ -163,6 +203,16 @@ define([
             $scope.stores = {};
             $scope.data = {};
             $scope.handlers = {};
+
+            $scope.stores.Weeks = {
+                '1': false,
+                '2': false,
+                '3': false,
+                '4': false,
+                '5': false,
+                '6': false,
+                '7': false
+            };
 
             $scope.handlers.toExamine = function (id) {
                 modalComponent.confirm('是否送审？')
@@ -193,6 +243,12 @@ define([
 
             programService.list($stateParams.id)
                 .success(function (response) {
+                    var weeks = ',' + response.data.Weeks + ',';
+                    $.each($scope.stores.Weeks, function (index, item) {
+                        if (weeks.indexOf(',' + index + ',') >= 0) {
+                            $scope.stores.Weeks[index] = true;
+                        }
+                    });
                     $scope.data = response.data;
                 });
 

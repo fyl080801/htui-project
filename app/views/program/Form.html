@@ -24,6 +24,52 @@
                 </ex-column>
             </ex-row>
             <ex-row>
+                <ex-column>
+                    <div class="form-group">
+                        <label class="control-label col-md-1">播出日:</label>
+                        <div class="col-md-11">
+                            <ul class="list-inline">
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['1']"> 周一
+                                    </label>
+                                </li>
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['2']"> 周二
+                                    </label>
+                                </li>
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['3']"> 周三
+                                    </label>
+                                </li>
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['4']"> 周四
+                                    </label>
+                                </li>
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['5']"> 周五
+                                    </label>
+                                </li>
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['6']"> 周六
+                                    </label>
+                                </li>
+                                <li class="checkbox">
+                                    <label>
+                                        <input type="checkbox" ng-model="stores.Weeks['7']"> 周日
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </ex-column>
+            </ex-row>
+            <ex-row>
                 <ex-column ex-flex="6">
                     <ex-timefield ex-field-label="开始时间:" ex-flex-label="2" ex-flex-input="4" ng-model="data.StartTime"
                                   ng-required="true"></ex-timefield>
